@@ -9,14 +9,28 @@ console.log(rudePerson("how are you")); // prints "how what are what you"
 console.log(rudePerson("I like pie")); // prints "I what like what pie"
 
 
-Invoking the interrupter function again: 
+Invoking the interrupter function again:
 let rudePerson2 = interrupter("yo"); // => returns a function
 console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
 
 ***********************************************************************/
 
-// your code here!
+const interrupter = interruptingWord => {
+  return function(sentence){
+    let words = sentence.split(" ");
+    let newSentence = "";
+    for(let i = 0; i < words.length; i++){
+      let word = words[i];
+      if(i === words.length-1){
+        newSentence += word;
+      } else {
+        newSentence += word + " " + interruptingWord + " ";
+      }
+    }
+    return newSentence;
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
